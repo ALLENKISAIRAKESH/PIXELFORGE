@@ -1,7 +1,7 @@
 {
   "name": "pixelforge-frontend",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "sideEffects": false,
   "type": "module",
   "scripts": {

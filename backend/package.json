@@ -2,7 +2,7 @@
   "name": "pixelforge-backend",
   "version": "1.0.0",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "description": "PIXELFORGE Portfolio API Backend Service",
   "main": "src/index.js",
   "type": "module",

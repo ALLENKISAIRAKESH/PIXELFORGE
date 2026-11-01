@@ -97,4 +97,10 @@ This repository contains a native `render.yaml` Blueprint specification that aut
 | `GET` | `/api/skills` | Technical Skill Matrix |
 | `POST` | `/api/contact` | Submit Contact Form Inquiry |
 
+---
+
+## 📄 License
+This project is licensed under the [MIT License](LICENSE) — Copyright © 2026 **ALLENKI SAI RAKESH**. All rights reserved.
+
+
 
