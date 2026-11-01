@@ -1,0 +1,161 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-violet: var(--violet);
+  --color-placeholder: var(--placeholder);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-terminal: var(--terminal);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.155 0.02 265);
+  --foreground: oklch(0.95 0.01 260);
+  --card: oklch(0.19 0.025 265);
+  --card-foreground: oklch(0.95 0.01 260);
+  --popover: oklch(0.19 0.025 265);
+  --popover-foreground: oklch(0.95 0.01 260);
+  --primary: oklch(0.93 0.21 125); /* #C6FF4D */
+  --primary-foreground: oklch(0.17 0.03 265);
+  --secondary: oklch(0.23 0.03 265);
+  --secondary-foreground: oklch(0.95 0.01 260);
+  --muted: oklch(0.22 0.025 265);
+  --muted-foreground: oklch(0.72 0.025 260);
+  --accent: oklch(0.25 0.04 285);
+  --accent-foreground: oklch(0.95 0.01 260);
+  --violet: oklch(0.62 0.2 295);
+  --placeholder: oklch(0.82 0.13 75);
+  --destructive: oklch(0.68 0.2 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.32 0.03 265 / 70%);
+  --input: oklch(0.32 0.03 265);
+  --ring: oklch(0.93 0.21 125);
+  --terminal: oklch(0.12 0.018 265);
+  --grid-line: oklch(0.6 0.05 265 / 7%);
+  --glow-primary:
+    0 0 0 1px color-mix(in oklab, var(--primary) 40%, transparent),
+    0 10px 40px -12px color-mix(in oklab, var(--primary) 45%, transparent);
+  --gradient-violet: radial-gradient(
+    60% 60% at 70% 20%,
+    color-mix(in oklab, var(--violet) 28%, transparent),
+    transparent 70%
+  );
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+@utility bg-violet-glow {
+  background-image: var(--gradient-violet);
+}
+@utility shadow-glow {
+  box-shadow: var(--glow-primary);
+}
+@utility text-glow {
+  text-shadow: 0 0 24px color-mix(in oklab, var(--primary) 45%, transparent);
+}
+
+@keyframes pixel-pulse {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@utility animate-pixel {
+  animation: pixel-pulse 3.2s ease-in-out infinite;
+}
+@utility animate-rise {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@utility animate-blink {
+  animation: blink 1s steps(1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

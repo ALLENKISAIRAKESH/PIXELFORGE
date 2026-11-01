@@ -1,0 +1,36 @@
+# Root .gitignore for PIXELFORGE Monorepo
+
+# Ignore all loose non-code documentation, prompts, and temporary files in repository root
+/*.docx
+/*.pdf
+/*.png
+/*.txt
+/0.26.0
+/PIXELFORGE_ANTIGRAVITY_MASTER_PROMPT*.md
+/Antigravity Master prompt.txt
+
+# Node & package manager directories
+node_modules/
+.npm/
+.bun/
+
+# Build and environment outputs
+.output/
+.wrangler/
+.nitro/
+dist/
+dist-ssr/
+.tanstack/
+.vinxi/
+*.local
+.env
+.env.*
+
+# OS and Editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.log
