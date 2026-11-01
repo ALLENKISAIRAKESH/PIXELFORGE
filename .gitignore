@@ -1,13 +1,13 @@
 # Root .gitignore for PIXELFORGE Monorepo
 
-# Ignore all loose non-code documentation, prompts, and temporary files in repository root
+# Ignore all loose non-code documentation, notes, and temporary files in repository root
 /*.docx
 /*.pdf
 /*.png
 /*.txt
+/*.md
+!/README.md
 /0.26.0
-/PIXELFORGE_ANTIGRAVITY_MASTER_PROMPT*.md
-/Antigravity Master prompt.txt
 
 # Node & package manager directories
 node_modules/
